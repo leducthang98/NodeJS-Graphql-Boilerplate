@@ -6,7 +6,6 @@ datamodel:
   - ./prisma/enum/Enum.graphql
   - ./prisma/model/User.graphql
 
-
 # Specifies the language and directory for the generated Prisma client.
 generate:
   - generator: javascript-client

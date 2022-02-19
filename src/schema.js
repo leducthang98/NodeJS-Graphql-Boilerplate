@@ -17,3 +17,4 @@ export const schema = makePrismaSchema({
     schema: join(__dirname, './generated/schema.graphql'),
   },
 })
+

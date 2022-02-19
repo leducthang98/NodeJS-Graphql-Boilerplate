@@ -5,4 +5,5 @@ type User {
   deletedAt: DateTime
   username: String!
   password: String!
+  gender: Gender
 }
