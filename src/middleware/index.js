@@ -1,4 +1,4 @@
-import { authenticateMiddleware } from "./authenticate";
+import { authenticateMiddleware } from "./Authenticate";
 
 export const middlewares = [
     authenticateMiddleware,

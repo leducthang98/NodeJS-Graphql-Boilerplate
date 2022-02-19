@@ -1,7 +1,7 @@
 
 import { mutationField, stringArg } from 'nexus'
 
-const defaultResolver = async(_root, args, ctx) => {
+const defaultResolver = async (_root, args, ctx) => {
     return {
         defaultType: 'mutation'
     }
