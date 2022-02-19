@@ -1,7 +1,7 @@
 
 const handler = async (resolve, root, args, ctx, info) => {
-    let isAuthenicated = true
-    if (isAuthenicated) {
+    let isAuthenticated = true
+    if (isAuthenticated) {
         ctx.userId = '123'
         return await resolve(root, args, ctx, info)
     } else {
