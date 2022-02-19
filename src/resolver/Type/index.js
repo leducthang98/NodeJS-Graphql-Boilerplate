@@ -1,5 +1,5 @@
-import { Post } from "./Post";
+import { Default } from "./Default";
 
 export const Type = [
-    Post
+    Default
 ]
