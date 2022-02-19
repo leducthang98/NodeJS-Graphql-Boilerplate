@@ -2,7 +2,7 @@ import { GraphQLServer } from 'graphql-yoga'
 import { schema } from './schema'
 import { prisma } from './generated/prisma-client'
 import NoIntrospection from 'graphql-disable-introspection'
-
+import { middlewares } from './middleware'
 const isDevelopment = process.env.ENV === 'development'
 
 const server = new GraphQLServer({
@@ -14,7 +14,7 @@ const server = new GraphQLServer({
     }
     return context
   },
-  middlewares: [],
+  middlewares
 })
 
 const playground = isDevelopment ? true : false
