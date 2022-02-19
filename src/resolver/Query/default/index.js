@@ -1,16 +1,18 @@
 
 import { extendType } from 'nexus'
 
+const defaultResolver = (_root, args, ctx) => {
+    return {
+        defaultType: 'query'
+    }
+}
+
 export const defaultDefinition = extendType({
     type: 'Query',
     definition: t => {
-        t.field('default', {
+        t.field('defaultQuery', {
             type: 'Default',
-            resolve: (_root, args, ctx) => {
-                return {
-                    healthCheck: 'ok'
-                }
-            },
+            resolve: defaultResolver
         })
     },
 })

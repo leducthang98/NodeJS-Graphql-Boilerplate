@@ -1,17 +1,16 @@
 import { prismaObjectType } from "nexus-prisma";
 import { defaultDefinition } from "./default";
 
-const prismaQuery = prismaObjectType({
-    name: 'Query',
+const prismaMutation = prismaObjectType({
+    name: 'Mutation',
     definition: t => {
         t.prismaFields([
-            'users',
-            'user'
+            'createUser'
         ])
     }
 })
 
-export const Query = [
-    prismaQuery,
+export const Mutation = [
+    prismaMutation,
     defaultDefinition
 ]
