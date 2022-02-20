@@ -1,5 +1,5 @@
 
-const handler = async (resolve, root, args, ctx, info) => {
+const authMiddleware = async (resolve, root, args, ctx, info) => {
     let isAuthenticated = true
     if (isAuthenticated) {
         ctx.userId = '123'
@@ -8,13 +8,15 @@ const handler = async (resolve, root, args, ctx, info) => {
         throw new Error('auth error')
     }
 }
-export const authenticateMiddleware = {
+
+// auth apis go here
+export const auth = {
     Query: {
-        users: handler,
-        defaultQuery: handler
+        users: authMiddleware,
+        defaultQuery: authMiddleware
     },
     Mutation: {
-        createUser: handler,
-        defaultMutation: handler,
+        createUser: authMiddleware,
+        defaultMutation: authMiddleware,
     }
 }

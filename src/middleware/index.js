@@ -1,6 +1,7 @@
-import { authenticateMiddleware } from "./Authenticate";
+import { auth } from "./Authenticate";
+import { permission } from "./authorization";
 
 export const middlewares = [
-    authenticateMiddleware,
-  ]
-  
+  auth,
+  permission
+]

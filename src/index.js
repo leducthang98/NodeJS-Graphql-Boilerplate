@@ -3,7 +3,8 @@ import { schema } from './schema'
 import { prisma } from './generated/prisma-client'
 import NoIntrospection from 'graphql-disable-introspection'
 import { middlewares } from './middleware'
-import { PORT } from './constant/common'
+import { CONFIG } from './constant/common'
+require('./util/Database')
 
 const isDevelopment = process.env.ENV === 'development'
 
@@ -22,7 +23,7 @@ const server = new GraphQLServer({
 const playground = isDevelopment ? true : false
 
 const options = {
-  port: PORT,
+  port: CONFIG.PORT,
   playground,
   bodyParserOptions: { limit: '10mb', type: 'application/json' },
   endpoint: '/graphql',
@@ -34,6 +35,6 @@ server.express.get('/rest', (req, res) => {
 })
 
 server.start(options, () => {
-  console.log('🚀 GraphQL Server is running on http://localhost:4000/graphql')
-  console.log('🎯 REST-API Server is running on http://localhost:4000/rest')
+  console.log(`🚀 GraphQL Server is running on http://localhost:${CONFIG.PORT}/graphql`)
+  console.log(`🎯 REST-API Server is running on http://localhost:${CONFIG.PORT}/rest`)
 })
