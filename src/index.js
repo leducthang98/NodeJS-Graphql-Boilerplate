@@ -4,6 +4,7 @@ import { prisma } from './generated/prisma-client'
 import NoIntrospection from 'graphql-disable-introspection'
 import { middlewares } from './middleware'
 import { CONFIG } from './constant/common'
+import { errorHandler } from './middleware/errorHandler'
 require('./util/Database')
 
 const isDevelopment = process.env.ENV === 'development'
@@ -26,6 +27,7 @@ const options = {
   port: CONFIG.PORT,
   playground,
   bodyParserOptions: { limit: '10mb', type: 'application/json' },
+  formatError: error => errorHandler(error),
   endpoint: '/graphql',
   validationRules: isDevelopment ? [] : [NoIntrospection],
 }

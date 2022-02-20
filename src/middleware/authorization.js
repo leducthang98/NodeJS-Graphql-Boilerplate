@@ -5,7 +5,7 @@ export const rolePermitted = (roles) => {
         if (isAuthorized) {
             return await resolve(root, args, ctx, info)
         } else {
-            throw new Error('permission denied')
+            throw new Error('NOT_PERMITTED')
         }
     }
 }
